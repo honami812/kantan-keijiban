@@ -5,13 +5,14 @@ header('Content-Type: text/html;charset=utf-8');  // 日本語が正しく表示
 $dsn = 'mysql:dbname=db1;host=localhost';
 $user = 'root';
 $password = 'lamp1';
-
 try { 
     $dbh = new PDO($dsn, $user, $password);
     $search = $_POST["search"];  // 入力された検索する文字列
 
     $re = $dbh->query("SELECT * FROM keijiban_tb WHERE message LIKE '%$search%';");
     print "検索結果を表示します<br>";
+
+
     while ($kekka = $re->fetch()) {
         print $kekka[0];
         print " | ";

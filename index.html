@@ -1,24 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .flex-container {
+            background-color: rgba(0, 204, 255, 0.966);    
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <!--
-    Modified from the Debian original for Ubuntu
-    Last updated: 2016-11-16
-    See: https://launchpad.net/bugs/1288690
-  -->
-  <head>
+        .box {
+            width:500px;
+            height: 80px;
+            margin: 25px;
+            padding: 25px;
+            border: 5px solid rgb(19, 19, 18);
+        }
+    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Apache2 Ubuntu Default Page: It works</title>
+</head> 
+<body>
+    <div class="flex-container">
+        <div class="box">
+    <form method="POST" action="keijiban_select.php">
+        <div>掲示板のメッセージを表示します</div>
+        <input type="submit" value="メッセージ表示">
     
-    
-  </head>
-  <body>
-    <h1>ようこそ</h1>
-<p>
-こんにちは
-</p>
-
-  < href="htt"
-  </body>
+        </form>
+        </div>
+        <div class="box">
+    <form method="POST" action="keijiban_insert.php">
+            <div>
+            名前を入力<input type="text" name="namae">
+            </div>
+            <div>
+            メッセージを入力<input type="text" name="message" >
+            </div>
+            <input type="submit" value="メッセージ投稿">
+            
+    </form>
+</div>
+        <div class="box">
+    <form method="POST" action="keijiban_delete.php">
+                <div>
+                削除する番号を入力してください<div></div><input type="text" name="bangou">
+                </div>
+                <input type="submit" value="削除">
+                
+    </form>
+    </div>
+        <div class="box">
+     <form method="POST" action="keijiban_search.php">
+                    <div>
+                    検索のキーワードを入力してください<div></div><input type="text" name="search">
+                    </div>
+                    <input type="submit" value="検索">
+                    
+            </form>
+            </div>
+            </div>
+</body>
 </html>
-
