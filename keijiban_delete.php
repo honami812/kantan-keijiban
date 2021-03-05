@@ -5,11 +5,13 @@ header('Content-Type: text/html;charset=utf-8');  // 日本語が正しく表示
 
 
 try { 
-    $dbh = new PDO($dsn, $user, $password);
+    $dbh = new PDO($dsn);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 
 $number = $_POST["bangou"];  // 入力された削除する番号
 
-$dbh->query("DELETE FROM keijiban_tb WHERE bangou = {$number};");
+$dbh->query("DELETE FROM keijibanK WHERE bangou = {$number};");
 
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();

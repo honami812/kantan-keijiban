@@ -2,14 +2,14 @@
 header('Content-Type: text/html;charset=utf-8');  // 日本語が正しく表示されるようにいれる
 
 /* Connect to a MySQL database using driver invocation */
-$dsn = 'mysql:dbname=db1;host=localhost';
-$user = 'root';
-$password = 'lamp1';
+INSERT INTO keijibanK (namae, message) VALUES('".$name."', '".$message."');
 try { 
-    $dbh = new PDO($dsn, $user, $password);
+    $dbh = new PDO($dsn);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
     $search = $_POST["search"];  // 入力された検索する文字列
 
-    $re = $dbh->query("SELECT * FROM keijiban_tb WHERE message LIKE '%$search%';");
+    $re = $dbh->query("SELECT * FROM keijibanK WHERE message LIKE '%$search%';");
     print "検索結果を表示します<br>";
 
 

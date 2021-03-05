@@ -7,7 +7,9 @@ $user = 'root';
 $password = 'lamp1';
 
 try { 
-    $dbh = new PDO($dsn, $user, $password);
+    $dbh = new PDO($dsn);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
     
     // この下にプログラムを書きましょう
 
@@ -18,7 +20,7 @@ try {
     print $name;
     print "br";
     print $message;
-    $dbh->query("INSERT INTO keijiban_tb (namae, message) VALUES ('{$name}', '{$message}');");
+    $dbh->query("INSERT INTO keijibanK (namae, message) VALUES ('{$name}', '{$message}');");
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
